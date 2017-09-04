@@ -1,0 +1,17 @@
+---
+title: "Data Visualization Manipulation"
+author: "Justin Rogers"
+date: "9/4/2017"
+output: html_document
+---
+
+```{r}
+pop <- read_excel('population.xlsx')
+gdp <- read_excel('gdp.xlsx')
+lit <- read_excel('literacy.xlsx')
+```
+
+```{r}
+head(pop)
+```
+
