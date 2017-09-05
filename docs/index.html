@@ -7,7 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
   <script type="text/javascript">
-      var svg = dimple.newSvg("#chartContainer", 590, 400);
+      var svg = dimple.newSvg("#chartContainer", "100%", "100%");
       d3.csv("https://raw.githubusercontent.com/yaskyj/data-visualization/master/data.csv", function (data) {
 
           // Add a count for number of data points in each year
@@ -36,7 +36,7 @@
           var firstTick = true;
 
           // Place the indicator bar chart to the right
-          indicator.setBounds(434, 49, 153, 311);
+          indicator.setBounds("90%", "10%", "10%", "80%");
 
           // Add dates along the y axis
           var y = indicator.addCategoryAxis("y", "Year");
@@ -73,7 +73,7 @@
                       "to resume animation"])
                   .enter()
                   .append("text")
-                  .attr("x", 435)
+                  .attr("x", "87%")
                   .attr("y", function (d, i) { return 15 + i * 12; })
                   .style("font-family", "sans-serif")
                   .style("font-size", "10px")
@@ -91,11 +91,12 @@
 
           // Draw the main chart
           var bubbles = new dimple.chart(svg, data);
-          bubbles.setBounds(60, 50, 355, 310)
+          bubbles.setBounds("5%", "10%", "80%", "75%")
           bubbles.addMeasureAxis("x", "SchoolYears");
           bubbles.addMeasureAxis("y", "GDP");
+          bubbles.addMeasureAxis("z", "Population.sqrt");
           bubbles.addSeries(["Country","Region"], dimple.plot.bubble)
-          bubbles.addLegend(60, 10, 410, 60);
+          bubbles.addLegend("5%", "5%", "80%", "75%");
 
           // Add a storyboard to the main chart and set the tick event
           var story = bubbles.setStoryboard("Year", onTick);
@@ -110,7 +111,7 @@
           // Orphan the legends as they are consistent but by default they
           // will refresh on tick
           bubbles.legends = [];
-          
+
           // Remove the storyboard label because the chart will indicate the
           // current month instead of the label
           story.storyLabel.remove();
