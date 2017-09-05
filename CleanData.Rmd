@@ -48,3 +48,8 @@ ggplot(aes(x = SchoolYears, y = GDP, size=Population, color=Region), data = subs
 write.csv(data, file = 'data.csv', row.names = FALSE)
 ```
 
+```{r}
+min(data$GDP)
+max(data$GDP)
+```
+
