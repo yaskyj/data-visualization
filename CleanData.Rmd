@@ -5,6 +5,8 @@ date: "9/4/2017"
 output: html_document
 ---
 
+## Importing and cleaning files
+
 ```{r}
 ### Initial import of files
 lit <- read_excel('literacy.xlsx')
