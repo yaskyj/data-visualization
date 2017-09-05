@@ -1,14 +1,26 @@
 <html>
+<style type="text/css">
+  html, body { margin:0; padding:0; overflow:hidden }
+  svg { position:fixed; top:0; left:0; height:100%; width:100% }
+</style>
 <div id="chartContainer">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
   <script type="text/javascript">
       var svg = dimple.newSvg("#chartContainer", 590, 400);
       d3.csv("https://raw.githubusercontent.com/yaskyj/data-visualization/master/data.csv", function (data) {
-          // Filter for 1 year
-          data = dimple.filterData(data, "Month", [
-              "Jan-12", "Feb-12", "Mar-12", "Apr-12", "May-12", "Jun-12",
-              "Jul-12", "Aug-12", "Sep-12", "Oct-12", "Nov-12", "Dec-12"
+
+          // Add a count for number of data points in each year
+          data.forEach(function(i) {
+              i['Number of Countries in Year'] = 1;
+            });
+
+          data = dimple.filterData(data, "Year", [
+              "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", 
+              "1980", "1981", "1982", "1983", "1984", "1985",
+              "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993",
+              "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001",
+              "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009"
           ]);
 
           // Create the indicator chart on the right of the main chart
@@ -27,11 +39,11 @@
           indicator.setBounds(434, 49, 153, 311);
 
           // Add dates along the y axis
-          var y = indicator.addCategoryAxis("y", "Month");
-          y.addOrderRule("Date", "Desc");
+          var y = indicator.addCategoryAxis("y", "Year");
+          y.addOrderRule("Year", desc=true);
 
-          // Use sales for bar size and hide the axis
-          var x = indicator.addMeasureAxis("x", "Unit Sales");
+          // Use number of countries for bar size and hide the axis 
+          var x = indicator.addMeasureAxis("x", "Number of Countries in Year");
           x.hidden = true;
 
           // Add the bars to the indicator and add event handlers
@@ -72,24 +84,25 @@
           s.shapes
                   .attr("rx", 10)
                   .attr("ry", 10)
-                  .style("fill", function (d) { return (d.y === 'Jan-12' ? indicatorColor.fill : defaultColor.fill) })
-                  .style("stroke", function (d) { return (d.y === 'Jan-12' ? indicatorColor.stroke : defaultColor.stroke) })
+                  .attr("width", 45)
+                  .style("fill", function (d) { return (d.y === '1970' ? indicatorColor.fill : defaultColor.fill) })
+                  .style("stroke", function (d) { return (d.y === '1970' ? indicatorColor.stroke : defaultColor.stroke) })
                   .style("opacity", 0.4);
 
           // Draw the main chart
           var bubbles = new dimple.chart(svg, data);
           bubbles.setBounds(60, 50, 355, 310)
-          bubbles.addMeasureAxis("x", "Distribution");
-          bubbles.addMeasureAxis("y", "Price");
-          bubbles.addSeries(["SKU", "Channel", "Owner"], dimple.plot.bubble)
+          bubbles.addMeasureAxis("x", "SchoolYears");
+          bubbles.addMeasureAxis("y", "GDP");
+          bubbles.addSeries(["Country","Region"], dimple.plot.bubble)
           bubbles.addLegend(60, 10, 410, 60);
 
           // Add a storyboard to the main chart and set the tick event
-          var story = bubbles.setStoryboard("Month", onTick);
+          var story = bubbles.setStoryboard("Year", onTick);
           // Change the frame duration
           story.frameDuration = frame;
           // Order the storyboard by date
-          story.addOrderRule("Date");
+          story.addOrderRule("Year");
 
           // Draw the bubble chart
           bubbles.draw();
@@ -97,9 +110,41 @@
           // Orphan the legends as they are consistent but by default they
           // will refresh on tick
           bubbles.legends = [];
+          
           // Remove the storyboard label because the chart will indicate the
           // current month instead of the label
           story.storyLabel.remove();
+
+
+          // bubbles.shapes.selectAll("rect")
+          //             // Add a click event to each rectangle
+          //             .on("click", function (e) {
+          //               // This indicates whether the item is already visible or not
+          //               var hide = false;
+          //               var newFilters = [];
+          //               // If the filters contain the clicked shape hide it
+          //               filterValues.forEach(function (f) {
+          //                 if (f === e.aggField.slice(-1)[0]) {
+          //                   hide = true;
+          //                 } else {
+          //                   newFilters.push(f);
+          //                 }
+          //               });
+          //               // Hide the shape or show it
+          //               if (hide) {
+          //                 d3.select(this).style("opacity", 0.2);
+          //               } else {
+          //                 newFilters.push(e.aggField.slice(-1)[0]);
+          //                 d3.select(this).style("opacity", 0.8);
+          //               }
+          //               // Update the filters
+          //               filterValues = newFilters;
+          //               // Filter the data
+          //               ChartInstance.data = dimple.filterData(data, "Region", filterValues);
+          //               // Passing a duration parameter makes the chart animate. Without
+          //               // it there is no transition
+          //               ChartInstance.draw(800);
+          //             });
 
           // On click of the side chart
           function onClick(e) {
