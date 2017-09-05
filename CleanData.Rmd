@@ -41,11 +41,19 @@ head(data)
 min(gdp$GDP, na.rm = TRUE)
 max(gdp$GDP, na.rm = TRUE)
 ```
+```{r}
+### Make square root of population to use for circle radius
+data$Population.sqrt <- sqrt(data[,'Population'])
+```
 
 ```{r}
 ### Printing out plot to test ideas
-ggplot(aes(x = Literacy, y = GDP, size=Population, color=Region), data = subset(data, Year = 2011)) + 
+ggplot(aes(x = Literacy, y = GDP, size=Population.sqrt, color=Region), data = subset(data, Year = 2011)) + 
   geom_point(alpha = 5/10) +
   scale_y_continuous(limits = c(0,109000), breaks = seq(0, 109000, 10000))
+```
+
+```{r}
+
 ```
 
