@@ -117,16 +117,25 @@
           story.storyLabel.remove();
 
 
+
           svg.selectAll("title_text")
-              .data([""])
+              .data(["Click on colored rectangles to filter by Region"])
               .enter()
               .append("text")
-              .attr("x", 499)
-              .attr("y", function (d, i) { return 90 + i * 14; })
+              .attr("x", "5%")
+              .attr("y", "3%") //function (d, i) { return 90 + i * 14; }
               .style("font-family", "sans-serif")
               .style("font-size", "10px")
               .style("color", "Black")
               .text(function (d) { return d; });
+
+          svg.append("text")
+             .attr("x", "50%")
+             .attr("y", "3%")
+             .style("text-anchor", "middle")
+             .style("font-family", "sans-serif")
+             .style("font-weight", "bold")
+             .text("Average School Years for Country by GDP");
 
           var filterValues = dimple.getUniqueValues(data, "Region").sort();
 
