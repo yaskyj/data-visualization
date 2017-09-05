@@ -2,58 +2,49 @@
 
 ```{r}
 ### Initial import of files
-lit <- read_excel('literacy.xlsx')
 gdp <- read_excel('gdp.xlsx')
 pop <- read_excel('population.xlsx')
+school <- read_excel('school.xlsx')
 regions <- read_excel('regions.xlsx')
 
 ### Rename columns to remove decimal points
-colnames(lit) <- substr(names(lit), 1, 4)
 colnames(gdp) <- substr(names(gdp), 1, 4)
 colnames(pop) <- substr(names(pop), 1, 4)
+colnames(school) <- substr(names(school), 1, 4)
 
-### Remove colunms other than 2001 through 2011
-lit <- lit[-c(2:27)]
-gdp <- gdp[-c(2:42)]
-pop <- pop[-c(2:67, 79:82)]
+### Make one row for year column
+gdp <- gather(gdp, "Year", "GDP", 2:length(colnames(gdp)))
+pop <- gather(pop, "Year", "Population", 2:length(colnames(pop)))
+school <- gather(school, "Year", "SchoolYears", 2:length(colnames(school)))
 
 ### Remove all other columns not needed to match country to region
 regions <- regions[-c(3:84)]
 
 ### Rename the first columns in order to easily match with regions
-colnames(lit)[1] <- "Country"
 colnames(gdp)[1] <- "Country"
 colnames(pop)[1] <- "Country"
-
-### Make one row for year column
-lit <- gather(lit, "Year", "Literacy", 2:12)
-gdp <- gather(gdp, "Year", "GDP", 2:12)
-pop <- gather(pop, "Year", "Population", 2:12)
+colnames(school)[1] <- "Country"
 
 ### Merge all data into one table
-data <- merge(lit, regions, by="Country")
+data <- merge(school, regions, by="Country")
 data <- merge(data, gdp, by=c("Country", "Year"))
 data <- merge(data, pop, by=c("Country", "Year"))
-```
 
-```{r}
-head(data)
-min(gdp$GDP, na.rm = TRUE)
-max(gdp$GDP, na.rm = TRUE)
-```
-```{r}
 ### Make square root of population to use for circle radius
 data$Population.sqrt <- sqrt(data[,'Population'])
+
+### Remove any rows with NA data
+data <- na.omit(data)
 ```
 
 ```{r}
 ### Printing out plot to test ideas
-ggplot(aes(x = Literacy, y = GDP, size=Population.sqrt, color=Region), data = subset(data, Year = 2011)) + 
-  geom_point(alpha = 5/10) +
-  scale_y_continuous(limits = c(0,109000), breaks = seq(0, 109000, 10000))
+ggplot(aes(x = SchoolYears, y = GDP, size=Population, color=Region), data = subset(data, Year = '1980')) + 
+  geom_point(alpha = 5/10)
+#  scale_y_continuous(limits = c(0,109000), breaks = seq(0, 109000, 10000))
 ```
 
 ```{r}
-
+write.csv(data, file = 'data.csv', row.names = FALSE)
 ```
 
