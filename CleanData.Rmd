@@ -35,3 +35,17 @@ data <- merge(lit, regions, by="Country")
 data <- merge(data, gdp, by=c("Country", "Year"))
 data <- merge(data, pop, by=c("Country", "Year"))
 ```
+
+```{r}
+head(data)
+min(gdp$GDP, na.rm = TRUE)
+max(gdp$GDP, na.rm = TRUE)
+```
+
+```{r}
+### Printing out plot to test ideas
+ggplot(aes(x = Literacy, y = GDP, size=Population, color=Region), data = subset(data, Year = 2011)) + 
+  geom_point(alpha = 5/10) +
+  scale_y_continuous(limits = c(0,109000), breaks = seq(0, 109000, 10000))
+```
+
