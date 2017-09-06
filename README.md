@@ -12,10 +12,17 @@ Files contained in repository:
 
 ## Summary
 This visualization shows the average years in school by country against the national GDP per person in USD adjusted for inflation. These features are shown by year and the bubble points on the chart are sized by the population. The chart shows that GDP in positively correlated with the level of education of the country and that both of these measures generally increase from year to year. It also shows that there is not a strong correlation in all cases, such as with Eastern Europe and Russia (i.e. former Soviet bloc countries).
+
 ## Design
+One of my favorite visualizations is [Hans Rosling's 200 Countries, 200 Years, 4 Minutes](https://www.youtube.com/watch?v=jbkSRLYSojo). I really wanted to recreate that type of visualization showing the correlation between wealth and education showing changes through the years. I found the datasets needed on the [Gapminder.org website](https://www.gapminder.org/data/). I initially wanted to use literacy rates as the measure of education, but there wasn't enough data across all years so I decided on average years in school for males 25-34 (as they didn't have the measure for both male and female).
 
-## Feedback
+I've used DimpleJS in previous work projects, so I googled for examples of animations. I found pretty much exactly what I was trying to do on the [DimpleJS.org site](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control) as an example.
 
+After cleaning/merging the data and getting the basic animations working with the code example I found, I showed the visualization to four coworkers, received verbal feedback (some of it conflicting), and then incorporated the feedback into the final visualization. Detailed feedback and how it was incorporated can be found in the [feedback section](#section1) below.
+
+## <a id='section1'>Feedback</a>
+
+Too many years cluttering the side
 Going to quick, can't view the individual dots - Not going quick enough - added slider
 Axis labels too small
 title too small, not enough information
@@ -24,7 +31,6 @@ No explanation of the axis
 legend spaced weirdly
 Bottom of the chart is cluttered looking with so many bubbles
 GDP not explained as USD and adjusted for inflation
-Too many years cluttering the side
 
 ## Resources
 [Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
