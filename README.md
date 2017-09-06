@@ -31,9 +31,9 @@ After cleaning/merging the data and getting the basic animations working with th
 ## <a id='section4'>Feedback</a>
 ### List of feedback with resolutions:
 * Too many years cluttering the side - I removed years 1970 through 1989.
-* Title too small and not enough information about the graph
+* Title too small and not enough information about the graph - I changed the title and it's position. In addition, I added more text at the top to put the graph in context.
+* No explanation of the bubble size - added text at the top of the graph to explain the size of the bubbles.
 * Axis labels too small
-* no explanation of the bubble size
 * No explanation of the axis
 * legend spaced weirdly
 * Bottom of the chart is cluttered looking with so many bubbles

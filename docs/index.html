@@ -96,7 +96,7 @@
           bubbles.addMeasureAxis("y", "GDP");
           bubbles.addMeasureAxis("z", "Population.sqrt");
           var mySeries = bubbles.addSeries(["Country","Region"], dimple.plot.bubble)
-          var myLegend = bubbles.addLegend("5%", "8%", "50%", "100%");
+          var myLegend = bubbles.addLegend("13%", "7%", "50%", "100%");
 
           mySeries.getTooltipText = function (e) {
               console.log(e);
@@ -127,17 +127,6 @@
           // current month instead of the label
           story.storyLabel.remove();
 
-          svg.selectAll("title_text")
-              .data(["Click on colored rectangles to filter by Region"])
-              .enter()
-              .append("text")
-              .attr("x", "5%")
-              .attr("y", "7%") //function (d, i) { return 90 + i * 14; }
-              .style("font-family", "sans-serif")
-              .style("font-size", "10px")
-              .style("color", "Black")
-              .text(function (d) { return d; });
-
           svg.append("text")
               .attr("x", "5%")
               .attr("y", "4%")
@@ -157,6 +146,53 @@
               .style("overflow-wrap", "break-word")
               .text("For years 1990 through 2009, average education levels rose in most countries. This rise in education levels appears to be correlated with a rise in wealth (measured in GDP in USD per person). While in general, education seems correlated with wealth, certain countries still lag behind in GDP per person despite their average education levels rising.")
               .call(wrap, 640);
+
+          svg.selectAll("title_text")
+              .data(["Regions:"])
+              .enter()
+              .append("text")
+              .attr("x", "5%")
+              .attr("y", "9%") //function (d, i) { return 90 + i * 14; }
+              .style("font-family", "sans-serif")
+              .style("font-size", "20px")
+              .style("font-weight", "bold")
+              .style("color", "Black")
+              .text(function (d) { return d; });
+
+          svg.selectAll("title_text")
+              .data(["*Click on colored rectangles to filter by Region"])
+              .enter()
+              .append("text")
+              .attr("x", "13%")
+              .attr("y", "12.5%")
+              .style("font-family", "sans-serif")
+              .style("font-style", "italic")
+              .style("font-size", "10px")
+              .style("color", "Black")
+              .text(function (d) { return d; });
+
+          svg.selectAll("title_text")
+              .data(["Population:"])
+              .enter()
+              .append("text")
+              .attr("x", "56%")
+              .attr("y", "9%") //function (d, i) { return 90 + i * 14; }
+              .style("font-family", "sans-serif")
+              .style("font-size", "20px")
+              .style("font-weight", "bold")
+              .style("color", "Black")
+              .text(function (d) { return d; });
+
+          svg.append("text")
+              .attr("x", "65.5%")
+              .attr("y", "9%")
+              .style("text-anchor", "left")
+              .style("font-family", "sans-serif")
+              .style("font-size", "10px")
+              .style("width", "100px")
+              .style("overflow-wrap", "break-word")
+              .text("Bubble size is relative to the population of the country.");
+              // .call(wrap, 640);
 
           var filterValues = dimple.getUniqueValues(data, "Region").sort();
 
