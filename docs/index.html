@@ -195,10 +195,10 @@
           // will refresh on tick
           bubbles.legends = [];
 
-          // Remove the storyboard label because the chart will indicate the
-          // current month instead of the label
+          // Remove the storyboard label
           story.storyLabel.remove();
 
+          // Add title to graph
           svg.append("text")
               .attr("x", "5%")
               .attr("y", "4%")
@@ -208,6 +208,7 @@
               .style("font-weight", "bold")
               .text("Impact of Education on Wealth");
 
+          // Add addition explanatory text
           svg.append("text")
               .attr("x", "35%")
               .attr("y", "2%")
@@ -217,6 +218,7 @@
               .text("For years 1990 through 2009, average education levels rose in most countries. This rise in education levels appears to be correlated with a rise in wealth (measured in GDP in USD per person). While in general, education seems correlated with wealth, certain countries still lag behind in GDP per person despite their average education levels rising.")
               .call(wrap, 640);
 
+          // Add Regions text
           svg.selectAll("title_text")
               .data(["Regions:"])
               .enter()
@@ -229,6 +231,7 @@
               .style("color", "Black")
               .text(function (d) { return d; });
 
+          // Add subtext to explain interactivity
           svg.selectAll("title_text")
               .data(["*Click on colored rectangles to filter by Region"])
               .enter()
@@ -241,6 +244,7 @@
               .style("color", "Black")
               .text(function (d) { return d; });
 
+          // Add population text
           svg.selectAll("title_text")
               .data(["Population:"])
               .enter()
@@ -253,6 +257,7 @@
               .style("color", "Black")
               .text(function (d) { return d; });
 
+          // Add bubble explanation
           svg.append("text")
               .attr("x", "65.5%")
               .attr("y", "9.5%")
@@ -345,10 +350,10 @@
                     word,
                     line = [],
                     lineNumber = 0,
-                    lineHeight = 1.1, // ems
+                    lineHeight = 1.1,
                     x = text.attr("x"),
                     y = text.attr("y"),
-                    dy = 0, //parseFloat(text.attr("dy")),
+                    dy = 0,
                     tspan = text.text(null)
                                 .append("tspan")
                                 .attr("x", x)
