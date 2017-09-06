@@ -11,7 +11,7 @@ Files contained in repository:
 * [data/school.xlsx](https://github.com/yaskyj/data-visualization/blob/master/data/school.xlsx) - original average years in school for men 25 to 34 years old from Gapminder.org
 
 ## Summary
-This visualization shows the average years in school by country against the national GDP in USD adjusted for inflation
+This visualization shows the average years in school by country against the national GDP in USD adjusted for inflation. These features are shown by year and the bubble points on the chart are sized by the population.
 ## Design
 
 ## Feedback
@@ -24,6 +24,7 @@ No explanation of the axis
 legend spaced weirdly
 Bottom of the chart is cluttered looking with so many bubbles
 GDP not explained as USD and adjusted for inflation
+Too many years cluttering the side
 
 ## Resources
 [Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
