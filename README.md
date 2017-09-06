@@ -43,6 +43,7 @@ After cleaning/merging the data and getting the basic animations working with th
 [Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
 [Interactive legend example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends)
 [Wrapping Text example](https://bl.ocks.org/mbostock/7555321)
+[Another example using the storyboard](http://bl.ocks.org/tybyers/736da90eefe0c347a1d6) - I tried to emulate the layout of this graph, but did not use or look through any of the code (beyond what was already in the above examples from DimpleJS).
 
 ### <a id='section5_1'>Data Document Links</a>
 [Region Mapping](http://gsociology.icaap.org/data/WorldPopulation.xlsx)  
