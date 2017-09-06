@@ -29,20 +29,21 @@ I've used DimpleJS in previous work projects, so I googled for examples of anima
 After cleaning/merging the data and getting the basic animations working with the code example I found, I showed the visualization to four coworkers, received verbal feedback (some of it conflicting), and then incorporated the feedback into the final visualization. Detailed feedback and how it was incorporated can be found in the [feedback section](#section4) below.
 
 ## <a id='section4'>Feedback</a>
-
-Too many years cluttering the side
-Going to quick, can't view the individual dots - Not going quick enough - added slider
-Axis labels too small
-title too small, not enough information
-no explanation of the bubble size
-No explanation of the axis
-legend spaced weirdly
-Bottom of the chart is cluttered looking with so many bubbles
-GDP not explained as USD and adjusted for inflation
+### List of feedback with resolutions:
+* Too many years cluttering the side - I removed years 1970 through 1989.
+* Title too small and not enough information about the graph
+* Axis labels too small
+* no explanation of the bubble size
+* No explanation of the axis
+* legend spaced weirdly
+* Bottom of the chart is cluttered looking with so many bubbles
+* GDP not explained as USD and adjusted for inflation
+* One persion said that the animation was going to quick to view individual bubbles while another person said that the animation wasn't fast enough to notice the changes between years - I added an interactive input for time
 
 ## <a id='section5'>Resources</a>
 [Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
 [Interactive legend example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends)
+[Wrapping Text example](https://bl.ocks.org/mbostock/7555321)
 
 ### <a id='section5_1'>Data Document Links</a>
 [Region Mapping](http://gsociology.icaap.org/data/WorldPopulation.xlsx)  

@@ -139,12 +139,24 @@
               .text(function (d) { return d; });
 
           svg.append("text")
-             .attr("x", "50%")
-             .attr("y", "3%")
-             .style("text-anchor", "middle")
-             .style("font-family", "sans-serif")
-             .style("font-weight", "bold")
-             .text("Average School Years for Country by GDP");
+              .attr("x", "5%")
+              .attr("y", "4%")
+              .style("text-anchor", "left")
+              .style("font-family", "sans-serif")
+              .style("font-size", "25px")
+              .style("font-weight", "bold")
+              .text("Impact of Education on Wealth");
+
+          svg.append("text")
+              .attr("x", "35%")
+              .attr("y", "2%")
+              .style("text-anchor", "left")
+              .style("font-family", "sans-serif")
+              .style("font-size", "10px")
+              .style("width", "100px")
+              .style("overflow-wrap", "break-word")
+              .text("For years 1990 through 2009, average education levels rose in most countries. This rise in education levels appears to be correlated with a rise in wealth (measured in GDP in USD per person). While in general, education seems correlated with wealth, certain countries still lag behind in GDP per person despite their average education levels rising.")
+              .call(wrap, 640);
 
           var filterValues = dimple.getUniqueValues(data, "Region").sort();
 
@@ -208,6 +220,39 @@
               }
               firstTick = false;
           }
+
+          function wrap(text, width) {
+            text.each(function () {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    x = text.attr("x"),
+                    y = text.attr("y"),
+                    dy = 0, //parseFloat(text.attr("dy")),
+                    tspan = text.text(null)
+                                .append("tspan")
+                                .attr("x", x)
+                                .attr("y", y)
+                                .attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan")
+                                    .attr("x", x)
+                                    .attr("y", y)
+                                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                                    .text(word);
+            }
+        }
+    });
+}
       });
   </script>
 </div>
