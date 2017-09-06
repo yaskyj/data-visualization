@@ -81,7 +81,7 @@
                   .text(function (d) { return d; });
 
           svg.selectAll("title_text")
-                  .data(["Click bar to pause."])
+                  .data(["Click year to pause."])
                   .enter()
                   .append("text")
                   .attr("x", "87%")
@@ -101,6 +101,16 @@
                   .style("font-family", "sans-serif")
                   .style("font-size", "10px")
                   .style("font-style", "italic")
+                  .text(function (d) { return d; });
+
+          svg.selectAll("title_text")
+                  .data(["Change seconds between change."])
+                  .enter()
+                  .append("text")
+                  .attr("x", "87%")
+                  .attr("y", "8%")
+                  .style("font-family", "sans-serif")
+                  .style("font-size", "10px")
                   .text(function (d) { return d; });
 
           // Manually set the bar colors
