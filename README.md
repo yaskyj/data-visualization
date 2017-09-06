@@ -11,7 +11,7 @@ Files contained in repository:
 * [data/school.xlsx](https://github.com/yaskyj/data-visualization/blob/master/data/school.xlsx) - original average years in school for men 25 to 34 years old from Gapminder.org
 
 ## Summary
-This visualization shows the average years in school by country against the national GDP in USD adjusted for inflation. These features are shown by year and the bubble points on the chart are sized by the population.
+This visualization shows the average years in school by country against the national GDP per person in USD adjusted for inflation. These features are shown by year and the bubble points on the chart are sized by the population. The chart shows that GDP in positively correlated with the level of education of the country and that both of these measures generally increase from year to year. It also shows that there is not a strong correlation in all cases, such as with Eastern Europe and Russia (i.e. former Soviet bloc countries).
 ## Design
 
 ## Feedback
