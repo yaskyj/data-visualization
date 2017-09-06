@@ -17,7 +17,7 @@ Files contained in repository:
 ## Feedback
 
 ## Resources
-[Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)
+[Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
 [Interactive legend example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends)
 
 ### Initial Document Links
