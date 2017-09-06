@@ -5,7 +5,7 @@ Table of Content
 3. [Design](#section3)
 4. [Feedback](#section4)
 5. [Resources](#section5)
-* [Data Document Links](#section5_1)
+[Data Document Links](#section5_1)
 
 
 ## <a id='section1'>Project Files</a>
