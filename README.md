@@ -1,5 +1,5 @@
 # Data Visualization with D3
-Table of Content
+## Table of Contents
 1. [Project Files](#section1)
 2. [Summary](#section2)
 3. [Design](#section3)
