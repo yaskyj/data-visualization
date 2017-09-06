@@ -92,11 +92,17 @@
           // Draw the main chart
           var bubbles = new dimple.chart(svg, data);
           bubbles.setBounds("5%", "13%", "83%", "75%")
-          bubbles.addMeasureAxis("x", "SchoolYears");
-          bubbles.addMeasureAxis("y", "GDP");
+          var x = bubbles.addMeasureAxis("x", "SchoolYears");
+          x.title = "Mean Years in School by Country";
+          x.fontSize = "15px"
+          var y = bubbles.addMeasureAxis("y", "GDP");
+          y.title = "GDP per Person (USD adjusted for inflation)";
+          y.fontSize = "15px"
           bubbles.addMeasureAxis("z", "Population.sqrt");
           var mySeries = bubbles.addSeries(["Country","Region"], dimple.plot.bubble)
-          var myLegend = bubbles.addLegend("13%", "7%", "50%", "100%");
+          var myLegend = bubbles.addLegend("13%", "7.5%", "50%", "100%");
+          
+          console.log(x);
 
           mySeries.getTooltipText = function (e) {
               console.log(e);
@@ -142,8 +148,6 @@
               .style("text-anchor", "left")
               .style("font-family", "sans-serif")
               .style("font-size", "10px")
-              .style("width", "100px")
-              .style("overflow-wrap", "break-word")
               .text("For years 1990 through 2009, average education levels rose in most countries. This rise in education levels appears to be correlated with a rise in wealth (measured in GDP in USD per person). While in general, education seems correlated with wealth, certain countries still lag behind in GDP per person despite their average education levels rising.")
               .call(wrap, 640);
 
@@ -152,7 +156,7 @@
               .enter()
               .append("text")
               .attr("x", "5%")
-              .attr("y", "9%") //function (d, i) { return 90 + i * 14; }
+              .attr("y", "9.5%") //function (d, i) { return 90 + i * 14; }
               .style("font-family", "sans-serif")
               .style("font-size", "20px")
               .style("font-weight", "bold")
@@ -164,7 +168,7 @@
               .enter()
               .append("text")
               .attr("x", "13%")
-              .attr("y", "12.5%")
+              .attr("y", "13%")
               .style("font-family", "sans-serif")
               .style("font-style", "italic")
               .style("font-size", "10px")
@@ -176,7 +180,7 @@
               .enter()
               .append("text")
               .attr("x", "56%")
-              .attr("y", "9%") //function (d, i) { return 90 + i * 14; }
+              .attr("y", "9.5%") //function (d, i) { return 90 + i * 14; }
               .style("font-family", "sans-serif")
               .style("font-size", "20px")
               .style("font-weight", "bold")
@@ -185,7 +189,7 @@
 
           svg.append("text")
               .attr("x", "65.5%")
-              .attr("y", "9%")
+              .attr("y", "9.5%")
               .style("text-anchor", "left")
               .style("font-family", "sans-serif")
               .style("font-size", "10px")

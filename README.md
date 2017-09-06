@@ -31,13 +31,12 @@ After cleaning/merging the data and getting the basic animations working with th
 ## <a id='section4'>Feedback</a>
 ### List of feedback with resolutions:
 * Too many years cluttering the side - I removed years 1970 through 1989.
+* Bottom of the chart is cluttered looking with so many bubbles - I added the ability to filter based on region.
 * Title too small and not enough information about the graph - I changed the title and it's position. In addition, I added more text at the top to put the graph in context.
-* No explanation of the bubble size - added text at the top of the graph to explain the size of the bubbles.
-* Axis labels too small
-* No explanation of the axis
-* legend spaced weirdly
-* Bottom of the chart is cluttered looking with so many bubbles
-* GDP not explained as USD and adjusted for inflation
+* Region legend spaced strangely - I change the format and positions of the region legend at the top of the graph.
+* No explanation of the bubble size - I added text at the top of the graph to explain the size of the bubbles.
+* GDP not explained as USD and adjusted for inflation - I changed the axis label to incorporate this information.
+* Axis labels too small - I changed both label sizes.
 * One persion said that the animation was going to quick to view individual bubbles while another person said that the animation wasn't fast enough to notice the changes between years - I added an interactive input for time
 
 ## <a id='section5'>Resources</a>
