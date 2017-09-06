@@ -1,4 +1,15 @@
-# data-visualization
+# Data Visualization with D3
+
+## Project Files
+
+## Summary
+
+## Design
+
+## Feedback
+
+## Resources
+
 
 Region mapping: http://gsociology.icaap.org/data/WorldPopulation.xlsx
 
