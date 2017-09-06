@@ -1,6 +1,14 @@
 # Data Visualization with D3
+Table of Content
+1. [Project Files](#section1)
+2. [Summary](#section2)
+3. [Design](#section3)
+4. [Feedback](#section4)
+5. [Resources](#section5)
+1. [Data Document Links](#section5_1)
 
-## Project Files
+
+## <a id='section1'>Project Files</a>
 Files contained in repository:
 * [docs/index.html](https://github.com/yaskyj/data-visualization/blob/master/docs/index.html) - code for data visualization. Live site is located [here](https://yaskyj.github.io/data-visualization/).
 * [data/CleanData.Rmd](https://github.com/yaskyj/data-visualization/blob/master/data/CleanData.Rmd) - R file to import, clean, merge, and export data into one file
@@ -10,17 +18,17 @@ Files contained in repository:
 * [data/regions.xlsx](https://github.com/yaskyj/data-visualization/blob/master/data/regions.xlsx) - original region mapping from gsociology.icaap.org.
 * [data/school.xlsx](https://github.com/yaskyj/data-visualization/blob/master/data/school.xlsx) - original average years in school for men 25 to 34 years old from Gapminder.org
 
-## Summary
+## <a id='section2'>Summary</a>
 This visualization shows the average years in school by country against the national GDP per person in USD adjusted for inflation. These features are shown by year and the bubble points on the chart are sized by the population. The chart shows that GDP in positively correlated with the level of education of the country and that both of these measures generally increase from year to year. It also shows that there is not a strong correlation in all cases, such as with Eastern Europe and Russia (i.e. former Soviet bloc countries).
 
-## Design
+## <a id='section3'>Design</a>
 One of my favorite visualizations is [Hans Rosling's 200 Countries, 200 Years, 4 Minutes](https://www.youtube.com/watch?v=jbkSRLYSojo). I really wanted to recreate that type of visualization showing the correlation between wealth and education showing changes through the years. I found the datasets needed on the [Gapminder.org website](https://www.gapminder.org/data/). I initially wanted to use literacy rates as the measure of education, but there wasn't enough data across all years so I decided on average years in school for males 25-34 (as they didn't have the measure for both male and female).
 
 I've used DimpleJS in previous work projects, so I googled for examples of animations. I found pretty much exactly what I was trying to do on the [DimpleJS.org site](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control) as an example.
 
-After cleaning/merging the data and getting the basic animations working with the code example I found, I showed the visualization to four coworkers, received verbal feedback (some of it conflicting), and then incorporated the feedback into the final visualization. Detailed feedback and how it was incorporated can be found in the [feedback section](#section1) below.
+After cleaning/merging the data and getting the basic animations working with the code example I found, I showed the visualization to four coworkers, received verbal feedback (some of it conflicting), and then incorporated the feedback into the final visualization. Detailed feedback and how it was incorporated can be found in the [feedback section](#section4) below.
 
-## <a id='section1'>Feedback</a>
+## <a id='section4'>Feedback</a>
 
 Too many years cluttering the side
 Going to quick, can't view the individual dots - Not going quick enough - added slider
@@ -32,11 +40,11 @@ legend spaced weirdly
 Bottom of the chart is cluttered looking with so many bubbles
 GDP not explained as USD and adjusted for inflation
 
-## Resources
+## <a id='section5'>Resources</a>
 [Animating and storyboard example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_storyboard_control)  
 [Interactive legend example on dimplejs.org](http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends)
 
-### Initial Document Links
+### <a id='section5_1'>Data Document Links</a>
 [Region Mapping](http://gsociology.icaap.org/data/WorldPopulation.xlsx)  
 [Gapminder Website](https://www.gapminder.org/data/)  
 [GDP](https://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdHo5S0J6ekhVOF9QaVhod05QSGV4T3c&output=xlsx)  
