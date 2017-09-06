@@ -4,7 +4,7 @@ Table of Content
 2. [Summary](#section2)
 3. [Design](#section3)
 4. [Feedback](#section4)
-5. [Resources](#section5)
+5. [Resources](#section5)  
 [Data Document Links](#section5_1)
 
 
